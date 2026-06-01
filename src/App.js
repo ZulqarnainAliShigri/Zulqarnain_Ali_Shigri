@@ -14,11 +14,11 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/App.css';
 
+const phrases = ["Web Developer", "MERN Developer", "AI Developer", "Frontend Engineer", "Problem Solver"];
+
 function App() {
   const [theme, setTheme] = useState('dark');
   const [currentPhrase, setCurrentPhrase] = useState('');
-
-  const phrases = ["Web Developer", "MERN Developer", "AI Developer", "Frontend Engineer", "Problem Solver"];
 
   // Initialize EmailJS
   useEffect(() => {
@@ -28,7 +28,8 @@ function App() {
   // Typing effect
   useEffect(() => {
     let pi = 0, ci = 0, forward = true;
-    
+    let timeoutId = null;
+
     const tick = () => {
       const word = phrases[pi];
 
@@ -37,7 +38,7 @@ function App() {
         setCurrentPhrase(word.slice(0, ci));
         if (ci === word.length) {
           forward = false;
-          setTimeout(tick, 1200);
+          timeoutId = setTimeout(tick, 1200);
           return;
         }
       } else {
@@ -48,10 +49,16 @@ function App() {
           pi = (pi + 1) % phrases.length;
         }
       }
-      setTimeout(tick, forward ? 100 : 36);
+      timeoutId = setTimeout(tick, forward ? 100 : 36);
     };
 
     tick();
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   // Theme management
@@ -75,16 +82,29 @@ function App() {
     <div className="App">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero currentPhrase={currentPhrase} />
+      <Projects />
       <About />
       <Skills />
       <Services />
-      <Projects />
       <Experience />
       <Education />
       <Certifications />
       <Testimonials />
       <Contact />
       <Footer />
+      <a
+        href="https://wa.me/923497001241"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span className="whatsapp-tooltip">Need help? Let's chat! 👋</span>
+        <span className="whatsapp-icon-wrapper">
+          <i className="fab fa-whatsapp"></i>
+          <span className="online-dot"></span>
+        </span>
+        <span>Chat Online</span>
+      </a>
     </div>
   );
 }
