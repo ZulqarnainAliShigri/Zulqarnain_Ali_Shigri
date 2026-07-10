@@ -159,9 +159,16 @@ h1, h2, h3, h4, h5, h6,
     object-fit: cover;
     z-index: -2;
     pointer-events: none;
+    background: #0b1220;
     filter: saturate(1.05) contrast(1.02);
     transform: scale(1.03);
     animation: hero-video-zoom 24s ease-in-out infinite alternate;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.hero-video.is-ready {
+    opacity: 1;
 }
 
 @keyframes hero-video-zoom {

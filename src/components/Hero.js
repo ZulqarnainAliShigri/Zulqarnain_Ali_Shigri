@@ -6,6 +6,7 @@ const Hero = ({ currentPhrase }) => {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   // Show the "tap to unmute" popup every time the site loads
   useEffect(() => {
@@ -69,13 +70,14 @@ const Hero = ({ currentPhrase }) => {
 
       <video
         ref={videoRef}
-        className="hero-video"
+        className={`hero-video ${videoReady ? 'is-ready' : ''}`}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/images/profile-pic.png"
+        onLoadedData={() => setVideoReady(true)}
+        onCanPlay={() => setVideoReady(true)}
       >
         <source src="/images/ideal-studio.mp4" type="video/mp4" />
       </video>
