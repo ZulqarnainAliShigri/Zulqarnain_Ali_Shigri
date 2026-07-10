@@ -23,7 +23,7 @@ const Education = () => {
         <h2>Education</h2>
         <div className="timeline">
           {education.map((edu, index) => (
-            <div key={index} className="timeline-item">
+            <div key={index} className="timeline-item" data-reveal="left" data-reveal-delay={index * 90}>
               <h6>{edu.institution}</h6>
               <p>{edu.period} · {edu.desc}</p>
             </div>

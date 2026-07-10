@@ -1,0 +1,15 @@
+{
+  "short_name": "Zulqarnain Ali",
+  "name": "Zulqarnain Ali — MERN & AI Developer",
+  "icons": [
+    {
+      "src": "images/profile-pic.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0f1724",
+  "background_color": "#0f1724"
+}

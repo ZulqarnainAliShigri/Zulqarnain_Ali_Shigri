@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 
 const Navbar = ({ theme, toggleTheme }) => {
-  const navItems = ['Home', 'About', 'Skills', 'Services', 'Projects', 'Experience', 'Certifications', 'Contact'];
+  const navItems = ['Home', 'Skills', 'Services', 'Projects', 'Resume', 'Contact'];
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -35,11 +35,6 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <a className="nav-link" href={`#${item.toLowerCase()}`}>{item}</a>
                 </li>
               ))}
-              <li className="nav-item ps-3">
-                <button onClick={toggleTheme} className="btn btn-sm btn-ghost">
-                  {theme === 'dark' ? '☀️' : '🌙'}
-                </button>
-              </li>
             </ul>
           </div>
         </div>

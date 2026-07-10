@@ -69,7 +69,7 @@ const Contact = () => {
       <div ref={ref} className="container container-lg" data-animate>
         <h2>Contact</h2>
         <div className="contact-grid">
-          <form onSubmit={handleSubmit} className="card-glass">
+          <form onSubmit={handleSubmit} className="card-glass" data-reveal="left">
             {formStatus.message && (
               <div className={`alert alert-${formStatus.type === 'success' ? 'success' : 'danger'}`} role="alert">
                 {formStatus.message}
@@ -125,7 +125,7 @@ const Contact = () => {
             </div>
           </form>
 
-          <aside className="card-glass">
+          <aside className="card-glass" data-reveal="right">
             <h5 style={{ color: 'var(--text)' }}>Get in touch</h5>
             <p style={{ color: 'var(--muted)' }}>
               <strong style={{ color: 'var(--text)' }}>Email:</strong> zulqarnaiahishigri@gmail.com<br />
