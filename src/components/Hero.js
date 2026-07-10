@@ -68,6 +68,15 @@ const Hero = ({ currentPhrase }) => {
             <div className="h1">Hi, I'm <span className="accent">Zulqarnain</span></div>
             <p className="lead">A <span className="type">{currentPhrase}</span> building modern web experiences and AI solutions.</p>
             <div className="cta-row">
+              <button
+                type="button"
+                onClick={toggleSound}
+                className={`btn hero-sound-btn-mobile ${muted ? 'is-muted' : ''}`}
+                aria-label={muted ? 'Unmute background video' : 'Mute background video'}
+              >
+                <i className={muted ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
+                {muted ? 'Tap for sound' : 'Sound on'}
+              </button>
               <a href="#projects" className="btn btn-primary-custom me-2">View Projects</a>
               <a href="#contact" className="btn btn-ghost">Hire Me</a>
               <button onClick={downloadCV} className="btn btn-ghost ms-2">Download CV</button>

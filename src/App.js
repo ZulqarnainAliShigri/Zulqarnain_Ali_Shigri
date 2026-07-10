@@ -6,9 +6,7 @@ import Process from './components/Process';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
+import Resume from './components/Resume';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -115,12 +113,19 @@ function App() {
       <Process />
       <Skills />
       <Services />
-      <Experience />
-      <Education />
-      <Certifications />
+      <Resume />
       <Testimonials />
       <Contact />
       <Footer />
+
+      {/* Mobile-only fixed bottom social bar */}
+      <div className="mobile-social-bar">
+        <a href="https://github.com/ZulqarnainAliShigri" target="_blank" rel="noopener noreferrer" title="GitHub"><i className="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/zulqarnain-ali-16829b286/?skipRedirect=true" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/zulqarn96078131" target="_blank" rel="noopener noreferrer" title="Twitter"><i className="fab fa-twitter"></i></a>
+        <a href="https://www.fiverr.com/users/zulfi_dev/seller_dashboard" target="_blank" rel="noopener noreferrer" title="Fiverr"><i className="fas fa-briefcase"></i></a>
+      </div>
+
       <a
         href="https://wa.me/923497001241"
         className="whatsapp-float"
