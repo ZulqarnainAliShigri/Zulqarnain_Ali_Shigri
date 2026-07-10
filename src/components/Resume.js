@@ -30,8 +30,8 @@ const Resume = () => {
   ];
 
   const certificates = [
-    { id: 'ceh', icon: 'fas fa-shield-halved', title: 'CEH — Ethical Hacking', file: 'images/Certificate.jpg' },
-    { id: 'cpa', icon: 'fas fa-code', title: 'CPA: C++ Certified Associate', file: '/src/certificates/cpa-certificate.pdf' },
+    { id: 'ceh', icon: 'fas fa-shield-halved', title: 'CEH — Ethical Hacking', file: '/images/WhatsApp%20Image%202026-07-10%20at%2010.13.14%20PM.jpeg' },
+    { id: 'cpa', icon: 'fas fa-code', title: 'CPA: C++ Certified Associate', file: '/images/WhatsApp%20Image%202026-07-10%20at%2010.14.00%20PM.jpeg' },
     { id: 'mern', icon: 'fas fa-layer-group', title: 'Full Stack Development with MERN', file: 'images/Certificate1.jpg' },
   ];
 

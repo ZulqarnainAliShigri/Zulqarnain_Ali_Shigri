@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
   const navItems = ['Home', 'Skills', 'Services', 'Projects', 'Resume', 'Contact'];
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,11 +57,6 @@ const Navbar = ({ theme, toggleTheme }) => {
               </a>
             </li>
           ))}
-          <li className="drawer-item theme-toggle-item">
-            <button onClick={() => { toggleTheme(); setIsOpen(false); }} className="btn btn-ghost theme-toggle-btn w-100 py-2">
-              {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
-            </button>
-          </li>
         </ul>
       </div>
     </>
