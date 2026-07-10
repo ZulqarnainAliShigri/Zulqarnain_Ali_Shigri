@@ -1,9 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import '../styles/App.css';
 
 const Hero = ({ currentPhrase }) => {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
+  const [showSoundPopup, setShowSoundPopup] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  // Show the "tap to unmute" popup every time the site loads
+  useEffect(() => {
+    const t = setTimeout(() => setShowSoundPopup(true), 1200);
+    return () => clearTimeout(t);
+  }, []);
 
   const toggleSound = () => {
     const video = videoRef.current;
@@ -14,6 +23,21 @@ const Hero = ({ currentPhrase }) => {
       video.play().catch(() => {});
     }
     setMuted(video.muted);
+  };
+
+  const enableSound = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = false;
+      video.volume = 1;
+      video.play().catch(() => {});
+      setMuted(false);
+    }
+    setShowSoundPopup(false);
+  };
+
+  const dismissSoundPopup = () => {
+    setShowSoundPopup(false);
   };
 
   const downloadCV = () => {
@@ -27,15 +51,33 @@ const Hero = ({ currentPhrase }) => {
 
   return (
     <header id="home" className="hero">
+      {showSoundPopup && createPortal(
+        <div className="sound-popup" role="dialog" aria-label="Enable sound">
+          <div className="sound-popup-inner">
+            <span className="sound-popup-icon"><i className="fas fa-volume-up"></i></span>
+            <div className="sound-popup-text">
+              <strong>Turn on sound</strong>
+              <span>Tap to unmute the intro video</span>
+            </div>
+            <button className="sound-popup-btn" onClick={enableSound}>
+              <i className="fas fa-volume-high"></i> Tap to unmute
+            </button>
+            <button className="sound-popup-close" onClick={dismissSoundPopup} aria-label="Dismiss">&times;</button>
+          </div>
+        </div>,
+        document.body
+      )}
+
       <video
         ref={videoRef}
-        className="hero-video"
+        className={`hero-video ${videoReady ? 'is-ready' : ''}`}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/images/profile-pic.png"
+        onLoadedData={() => setVideoReady(true)}
+        onCanPlay={() => setVideoReady(true)}
       >
         <source src="/images/ideal-studio.mp4" type="video/mp4" />
       </video>
