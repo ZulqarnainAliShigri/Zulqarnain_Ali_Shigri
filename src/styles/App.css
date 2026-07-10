@@ -1964,29 +1964,7 @@ h1, h2, h3, h4, h5, h6,
         max-width: 100%;
     }
 
-    /* same look as desktop: full-bleed cover video with a light blur */
-    .hero-video {
-        object-fit: cover;
-        object-position: center 30%;
-        transform: scale(1.02);
-        animation: none;
-        filter: blur(0.6px) saturate(1.08) contrast(1.05);
-    }
-
-    /* lighter overlay so the video reads clear, dark only at the bottom */
-    .hero-overlay {
-        background: linear-gradient(180deg,
-            rgba(8, 12, 22, 0.22) 0%,
-            rgba(8, 12, 22, 0.5) 55%,
-            rgba(8, 12, 22, 0.9) 100%);
-    }
-
-    [data-theme="light"] .hero-overlay {
-        background: linear-gradient(180deg,
-            rgba(246, 248, 251, 0.25) 0%,
-            rgba(246, 248, 251, 0.6) 55%,
-            rgba(246, 248, 251, 0.92) 100%);
-    }
+    /* hero video + overlay identical to desktop on mobile (no overrides) */
 
     .hero-grid {
         display: grid;
