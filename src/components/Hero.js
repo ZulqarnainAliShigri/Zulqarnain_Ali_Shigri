@@ -41,16 +41,25 @@ const Hero = ({ currentPhrase }) => {
       </video>
       <div className="hero-overlay" aria-hidden="true"></div>
 
-      <button
-        type="button"
-        className={`hero-sound-toggle ${muted ? 'is-muted' : ''}`}
-        onClick={toggleSound}
-        aria-label={muted ? 'Unmute background video' : 'Mute background video'}
-        title={muted ? 'Unmute' : 'Mute'}
-      >
-        <i className={muted ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
-        <span className="hero-sound-label">{muted ? 'Tap for sound' : 'Sound on'}</span>
-      </button>
+      <div className="hero-controls">
+        <div className="social-links">
+          <a href="https://github.com/ZulqarnainAliShigri" title="GitHub"><i className="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/zulqarnain-ali-16829b286/?skipRedirect=true" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/zulqarn96078131" title="Twitter"><i className="fab fa-twitter"></i></a>
+          <a href="https://www.fiverr.com/users/zulfi_dev/seller_dashboard" title="Fiverr"><i className="fas fa-briefcase"></i></a>
+        </div>
+
+        <button
+          type="button"
+          className={`hero-sound-toggle ${muted ? 'is-muted' : ''}`}
+          onClick={toggleSound}
+          aria-label={muted ? 'Unmute background video' : 'Mute background video'}
+          title={muted ? 'Unmute' : 'Mute'}
+        >
+          <i className={muted ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
+          <span className="hero-sound-label">{muted ? 'Tap for sound' : 'Sound on'}</span>
+        </button>
+      </div>
 
       <div className="container container-lg">
         <div className="hero-grid">
@@ -66,15 +75,6 @@ const Hero = ({ currentPhrase }) => {
           </div>
 
           <aside className="profile-container">
-            <img src="/images/profile-pic.png" alt="profile" className="profile" />
-
-            <div className="social-links">
-              <a href="https://github.com/ZulqarnainAliShigri" title="GitHub"><i className="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/zulqarnain-ali-16829b286/?skipRedirect=true" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-              <a href="https://x.com/zulqarn96078131" title="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="https://www.fiverr.com/users/zulfi_dev/seller_dashboard" title="Fiverr"><i className="fas fa-briefcase"></i></a>
-            </div>
-
             <div className="about-card-glass card-glass">
               <h5 style={{ color: 'var(--text)', margin: '0 0 6px' }}>About</h5>
               <p style={{ margin: '0', color: 'var(--muted)', fontSize: '14px', lineHeight: '1.5' }}>
