@@ -35,11 +35,6 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <a className="nav-link" href={`#${item.toLowerCase()}`}>{item}</a>
                 </li>
               ))}
-              <li className="nav-item ps-3">
-                <button onClick={toggleTheme} className="btn btn-sm btn-ghost">
-                  {theme === 'dark' ? '☀️' : '🌙'}
-                </button>
-              </li>
             </ul>
           </div>
         </div>
