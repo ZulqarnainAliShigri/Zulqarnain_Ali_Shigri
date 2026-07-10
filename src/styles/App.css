@@ -1824,28 +1824,13 @@ h1, h2, h3, h4, h5, h6,
         max-width: 100%;
     }
 
-    /* show the whole person (not zoomed/cropped) on mobile */
+    /* same look as desktop: full-bleed cover video with a soft blur */
     .hero-video {
-        object-fit: contain;
-        object-position: center 32%;
-        transform: none;
+        object-fit: cover;
+        object-position: center;
+        transform: scale(1.06);
         animation: none;
-        background: #0a0f1a;
-    }
-
-    /* lighter, top-to-bottom overlay so the person stays visible up top */
-    .hero-overlay {
-        background: linear-gradient(180deg,
-            rgba(8, 12, 22, 0.35) 0%,
-            rgba(8, 12, 22, 0.72) 55%,
-            rgba(8, 12, 22, 0.94) 100%);
-    }
-
-    [data-theme="light"] .hero-overlay {
-        background: linear-gradient(180deg,
-            rgba(246, 248, 251, 0.35) 0%,
-            rgba(246, 248, 251, 0.78) 55%,
-            rgba(246, 248, 251, 0.95) 100%);
+        filter: blur(1px) saturate(1.05) contrast(1.02);
     }
 
     .hero-grid {
@@ -2482,55 +2467,55 @@ h1, h2, h3, h4, h5, h6,
     .mobile-social-bar {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
-        height: 62px;
-        padding: 0 90px 0 18px;   /* right padding leaves room for WhatsApp */
+        height: 70px;
+        padding: 0 92px 0 18px;   /* right padding leaves room for WhatsApp */
         background: #ffffff;
         box-shadow: 0 -4px 22px rgba(0, 0, 0, 0.18);
         z-index: 9990;
     }
 
     .mobile-social-bar a {
-        width: 40px;
-        height: 40px;
+        width: 46px;
+        height: 46px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background: #f1f3f6;
-        border: 1px solid #e6e9ee;
-        font-size: 17px;
+        font-size: 20px;
+        border: 1.5px solid transparent;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         text-decoration: none;
-        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    /* brand-coloured icons at rest */
-    .mobile-social-bar a:nth-child(1) { color: #24292e; }
-    .mobile-social-bar a:nth-child(2) { color: #0a66c2; }
-    .mobile-social-bar a:nth-child(3) { color: #1d9bf0; }
-    .mobile-social-bar a:nth-child(4) { color: #1dbf73; }
+    /* soft brand-tinted circles at rest */
+    .mobile-social-bar a:nth-child(1) { color: #24292e; background: color-mix(in srgb, #24292e 12%, #fff); border-color: color-mix(in srgb, #24292e 22%, transparent); }
+    .mobile-social-bar a:nth-child(2) { color: #0a66c2; background: color-mix(in srgb, #0a66c2 12%, #fff); border-color: color-mix(in srgb, #0a66c2 22%, transparent); }
+    .mobile-social-bar a:nth-child(3) { color: #1d9bf0; background: color-mix(in srgb, #1d9bf0 12%, #fff); border-color: color-mix(in srgb, #1d9bf0 22%, transparent); }
+    .mobile-social-bar a:nth-child(4) { color: #1dbf73; background: color-mix(in srgb, #1dbf73 12%, #fff); border-color: color-mix(in srgb, #1dbf73 22%, transparent); }
 
     .mobile-social-bar a:active {
-        transform: scale(0.9);
+        transform: scale(0.92);
     }
 
-    /* fill with the brand colour on tap/hover */
+    /* full brand fill + lift on tap/hover */
     .mobile-social-bar a:nth-child(1):hover,
-    .mobile-social-bar a:nth-child(1):active { background: #24292e; color: #fff; box-shadow: 0 6px 16px rgba(36, 41, 46, 0.35); }
+    .mobile-social-bar a:nth-child(1):active { background: #24292e; color: #fff; border-color: #24292e; transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 18px rgba(36, 41, 46, 0.4); }
     .mobile-social-bar a:nth-child(2):hover,
-    .mobile-social-bar a:nth-child(2):active { background: #0a66c2; color: #fff; box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35); }
+    .mobile-social-bar a:nth-child(2):active { background: #0a66c2; color: #fff; border-color: #0a66c2; transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 18px rgba(10, 102, 194, 0.4); }
     .mobile-social-bar a:nth-child(3):hover,
-    .mobile-social-bar a:nth-child(3):active { background: #1d9bf0; color: #fff; box-shadow: 0 6px 16px rgba(29, 155, 240, 0.35); }
+    .mobile-social-bar a:nth-child(3):active { background: #1d9bf0; color: #fff; border-color: #1d9bf0; transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 18px rgba(29, 155, 240, 0.4); }
     .mobile-social-bar a:nth-child(4):hover,
-    .mobile-social-bar a:nth-child(4):active { background: #1dbf73; color: #fff; box-shadow: 0 6px 16px rgba(29, 191, 115, 0.35); }
+    .mobile-social-bar a:nth-child(4):active { background: #1dbf73; color: #fff; border-color: #1dbf73; transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 18px rgba(29, 191, 115, 0.4); }
 
     /* keep page content clear of the bar */
     body {
-        padding-bottom: 62px;
+        padding-bottom: 70px;
     }
 
     /* hide the hero's own social icons on mobile (now in the bar) */
@@ -2540,10 +2525,10 @@ h1, h2, h3, h4, h5, h6,
 
     /* WhatsApp sits on the RIGHT of the bar */
     .whatsapp-float {
-        bottom: 8px !important;
-        right: 14px !important;
-        width: 46px;
-        height: 46px;
+        bottom: 12px !important;
+        right: 16px !important;
+        width: 48px;
+        height: 48px;
         padding: 0;
         border-radius: 50%;
         z-index: 9995;
