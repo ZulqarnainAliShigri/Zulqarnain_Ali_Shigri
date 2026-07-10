@@ -35,11 +35,13 @@ const Certifications = () => {
       <div ref={ref} className="container container-lg" data-animate>
         <h2>Certifications</h2>
         <div className="skills-grid">
-          {certificates.map(cert => (
-            <button 
+          {certificates.map((cert, i) => (
+            <button
               key={cert.id}
-              className="certificate-btn" 
+              className="certificate-btn"
               onClick={() => openCertificate(cert.file)}
+              data-reveal="zoom"
+              data-reveal-delay={i * 90}
             >
               <i className={cert.icon}></i>
               <span className="btn-text">{cert.title}</span>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
+import Process from './components/Process';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
@@ -74,6 +74,35 @@ function App() {
     localStorage.setItem('pz_theme', theme);
   }, [theme]);
 
+  // Global scroll-reveal engine with per-item stagger
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+
+    if (prefersReduced) {
+      els.forEach(el => el.classList.add('revealed'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = Number(el.dataset.revealDelay || 0);
+            el.style.transitionDelay = `${delay}ms`;
+            el.classList.add('revealed');
+            obs.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
@@ -83,7 +112,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero currentPhrase={currentPhrase} />
       <Projects />
-      <About />
+      <Process />
       <Skills />
       <Services />
       <Experience />

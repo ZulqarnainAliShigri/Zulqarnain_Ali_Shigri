@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 
 const Navbar = ({ theme, toggleTheme }) => {
-  const navItems = ['Home', 'About', 'Skills', 'Services', 'Projects', 'Experience', 'Certifications', 'Contact'];
+  const navItems = ['Home', 'Skills', 'Services', 'Projects', 'Experience', 'Certifications', 'Contact'];
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

@@ -33,7 +33,7 @@ const Experience = () => {
         <h2>Experience</h2>
         <div className="timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
+            <div key={index} className="timeline-item" data-reveal="left" data-reveal-delay={index * 90}>
               <h6>{exp.title}</h6>
               <p>{exp.period} · {exp.desc}</p>
             </div>
